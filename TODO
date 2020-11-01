@@ -2,3 +2,14 @@
 - migrate to typescript 
 - add additional edge case tests
 - provide additional tooling for creating hermetic artifacts
+
+## Lint Errors
+
+standard: Use JavaScript Standard Style (https://standardjs.com)
+  /git-sz/lib/gitsz/api.js:70:11: Unreachable code.
+  /git-sz/lib/gitsz/api.js:84:11: Unreachable code.
+  /git-sz/lib/gitsz/api.js:111:9: Unreachable code.
+  /git-sz/lib/gitsz/api.js:157:9: Unreachable code.
+  /git-sz/lib/gitsz/hash.js:90:3: 'assert.equal' was deprecated since v10.0.0. Use 'assert.strictEqual' instead.
+  /git-sz/lib/gitsz/legacy-hash.js:106:7: 'assert.equal' was deprecated since v10.0.0. Use 'assert.strictEqual' instead.
+  /git-sz/lib/taruerreotype.js:22:51: Parsing error: Invalid number
