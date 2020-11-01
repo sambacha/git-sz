@@ -8,7 +8,7 @@
   },
   "scripts": {
     "lint": "npx prettier --loglevel debug --write . ",
-    "format": "npx eslint --debug --color --ext lib/gitsz.js",
+    "format": "npx standard",
     "test": "tape test/**/*.js | faucet"
   },
   "repository": {
