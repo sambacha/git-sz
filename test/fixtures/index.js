@@ -9,8 +9,8 @@ const spawnSync = require('child_process').spawnSync
 
 const rimraf = require('rimraf')
 
-const gst = require('../../')
-const GIT = gst.GIT
+const gsz = require('../../')
+const GIT = gsz.GIT
 
 const cli = path.join(__dirname, '..', '..', 'bin', 'gitsz')
 exports.cli = cli
