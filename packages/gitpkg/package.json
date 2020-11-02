@@ -1,0 +1,42 @@
+{
+  "name": "gitsz-package",
+  "version": "1.0.0-alpha",
+  "main": "dist/index.js",
+  "types": "dist/index.d.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "precommit": "lint-staged",
+    "lint:fix": "eslint --cache --max-warnings 0 --fix",
+    "build": "rimraf dist && tsc -p tsconfig.prod.json --outDir dist --module CommonJS --declaration --sourceMap --declarationMap"
+  },
+  "dependencies": {
+    "got": "^10.5.5",
+    "path-to-regexp": "^6.1.0",
+    "tar-transform": "^1.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/register": "^7.8.6",
+    "@now/node": "^1.4.1",
+    "@types/jest": "^25.1.3",
+    "@typescript-eslint/eslint-plugin": "^2.19.2",
+    "@typescript-eslint/parser": "^2.19.2",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.2.3",
+    "imagemin-lint-staged": "^0.4.0",
+    "jest": "^25.1.0",
+    "lerna": "^3.20.2",
+    "lint-staged": "^10.0.7",
+    "now": "^17.0.4",
+    "prettier": "1.19.1",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^25.2.1",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5"
+  }
+}
