@@ -1,0 +1,25 @@
+{
+  "build": {
+    "env": {
+      "GA_ID": "@ga_id_gitpkg"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/([^/]+)(/)?",
+      "destination": "/$1/index.html"
+    },
+    {
+      "source": "/api/pkg",
+      "destination": "/api/pkg.ts"
+    },
+    {
+      "source": "/api/pkg.tgz",
+      "destination": "/api/pkg.ts"
+    },
+    {
+      "source": "/((?:[^?]+/)+[^?]+)(\\?.+)?",
+      "destination": "/api/pkg-from-url"
+    }
+  ]
+}
