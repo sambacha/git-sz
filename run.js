@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
 
-const { prompter } = require('.');
+const { prompter } = require('.')
 
-prompter();
+prompter()
