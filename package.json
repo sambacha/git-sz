@@ -43,6 +43,7 @@
     "coveralls": "^3.1.0",
     "faucet": "0.0.1",
     "istanbul": "^0.4.5",
+    "lerna": "^3.22.1",
     "mocha": "^8.2.0",
     "rimraf": "^3.0.2",
     "tape": "^5.0.1"
