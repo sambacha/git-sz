@@ -1,1 +1,1 @@
-module.exports = require("@gitpkg/common/jest")();
+module.exports = require("git-sz/common/jest")();

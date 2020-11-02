@@ -1,1 +1,1 @@
-module.exports = require("@gitpkg/common/eslint")(__dirname);
+module.exports = require("git-sz/common/eslint")(__dirname);

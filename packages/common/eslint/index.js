@@ -31,7 +31,7 @@ module.exports = rootDir => ({
         "node/no-extraneous-require": [
           "error",
           {
-            allowModules: ["@gitpkg/common"],
+            allowModules: ["git-sz/common"],
           },
         ],
       },
