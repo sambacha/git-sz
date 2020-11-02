@@ -15,10 +15,10 @@ const yargs = require('yargs')
     .help()
 const argv = yargs.argv;
 
-const gst = require('../');
+const gsz = require('../index.js');
 
 if (argv._[0] === 'hash') {
-  const hash = new gst.Hash(argv);
+  const hash = new gsz.Hash(argv);
 
   hash.calculate(process.cwd(), argv._[1], (err, hash) => {
     if (err)
@@ -34,8 +34,9 @@ if (argv._.length < 1) {
   process.exit(1);
 }
 
-const api = new gst.API(process.cwd());
+const api = new gsz.API(process.cwd());
 if (argv.v)
   api.verify(argv._[0], argv);
 else
   api.sign(argv._[0], argv._[1], argv);
+

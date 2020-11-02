@@ -5,7 +5,7 @@
 const async = require('async')
 const tape = require('tape')
 
-const gst = require('../')
+const gsz = require('../')
 
 const fixtures = require('./fixtures')
 
@@ -13,7 +13,7 @@ tape('js api', (t) => {
   fixtures.init()
 
   // Verify tags
-  const api = new gst.API(fixtures.repo)
+  const api = new gsz.API(fixtures.repo)
 
   const tags = [
     { name: 'tag-latest', ref: 'HEAD' },
