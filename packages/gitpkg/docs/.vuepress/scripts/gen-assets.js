@@ -24,15 +24,12 @@ const GEN_ASSETS_OPTIONS = {
 };
 
 function relative(from, to) {
-  return path
-    .relative(from, to)
-    .split(path.sep)
-    .join("/");
+  return path.relative(from, to).split(path.sep).join("/");
 }
 
 function resetDir(dir) {
   return new Promise((resolve, reject) => {
-    rimraf(dir, err => {
+    rimraf(dir, (err) => {
       if (err) reject(err);
       else resolve();
     });
@@ -42,7 +39,7 @@ function resetDir(dir) {
 function parseXml(xml) {
   const { childNodes } = parse5.parseFragment(xml);
   return childNodes
-    .map(c => {
+    .map((c) => {
       if (c.nodeName === "#text") return null;
       return [
         c.tagName,
@@ -57,7 +54,7 @@ function parseXml(xml) {
 
 exports.generateAssets = async ({ splashScreen = true }) => {
   const [baseManifest] = await Promise.all([
-    fs.readFile(PATH_BASE_MANIFEST, "utf-8").then(text => {
+    fs.readFile(PATH_BASE_MANIFEST, "utf-8").then((text) => {
       fs.writeFile(PATH_MANIFEST, text);
       return JSON.parse(text);
     }),
@@ -88,7 +85,7 @@ exports.generateAssets = async ({ splashScreen = true }) => {
   const headStr =
     htmlMetaIcon.favicon +
     Object.keys(htmlMeta)
-      .map(k => htmlMeta[k])
+      .map((k) => htmlMeta[k])
       .join("");
 
   const manifestDir = path.dirname(PATH_MANIFEST);

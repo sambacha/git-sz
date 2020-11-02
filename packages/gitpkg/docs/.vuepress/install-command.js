@@ -48,10 +48,10 @@ function getInstallCommand(managerName, dependencyType, url) {
 export function installCommands(url) {
   const commands = Object.assign(
     {},
-    ...managerNames.map(m => ({
+    ...managerNames.map((m) => ({
       [m]: Object.assign(
         {},
-        ...dependencyTypes.map(d => ({
+        ...dependencyTypes.map((d) => ({
           [d]: getInstallCommand(m, d, url),
         })),
       ),

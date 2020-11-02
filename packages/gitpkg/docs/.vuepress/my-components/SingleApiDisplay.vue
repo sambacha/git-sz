@@ -13,7 +13,7 @@
         <developer-board-icon :width="size" :height="size" />
       </template>
       <button-group
-        style="flex: 1 1 0"
+        style="flex: 1 1 0;"
         v-model="selectedDependencyType"
         :entries="dependencyTypes"
         name="dependencyType"
@@ -36,7 +36,7 @@
       </template>
       <button
         class="gitpkg-button"
-        style="flex: 1 1 0"
+        style="flex: 1 1 0;"
         type="button"
         @click="showSuggested = !showSuggested"
       >
@@ -119,7 +119,7 @@ export default {
       return `"{package-name}": "${this.installUrl}"`;
     },
     dependencyTypes() {
-      return this.commands.dependencyTypes.map(d => ({ label: d, value: d }));
+      return this.commands.dependencyTypes.map((d) => ({ label: d, value: d }));
     },
   },
 };

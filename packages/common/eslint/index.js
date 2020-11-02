@@ -1,37 +1,37 @@
-module.exports = rootDir => ({
+module.exports = (rootDir) => ({
   root: true,
   overrides: [
     {
-      files: "**/*.ts",
-      parser: "@typescript-eslint/parser",
+      files: '**/*.ts',
+      parser: '@typescript-eslint/parser',
       parserOptions: {
         tsconfigRootDir: rootDir,
-        project: "./tsconfig.json",
+        project: './tsconfig.json',
       },
-      plugins: ["prettier", "@typescript-eslint"],
+      plugins: ['prettier', '@typescript-eslint'],
       extends: [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:prettier/recommended",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        'eslint:recommended',
+        'plugin:@typescript-eslint/eslint-recommended',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:prettier/recommended',
+        'plugin:@typescript-eslint/recommended-requiring-type-checking',
       ],
       rules: {
-        "@typescript-eslint/explicit-function-return-type": "off",
+        '@typescript-eslint/explicit-function-return-type': 'off',
       },
     },
     {
-      files: ["./*.js"],
+      files: ['./*.js'],
       extends: [
-        "eslint:recommended",
-        "plugin:prettier/recommended",
-        "plugin:node/recommended-script",
+        'eslint:recommended',
+        'plugin:prettier/recommended',
+        'plugin:node/recommended-script',
       ],
       rules: {
-        "node/no-extraneous-require": [
-          "error",
+        'node/no-extraneous-require': [
+          'error',
           {
-            allowModules: ["git-sz/common"],
+            allowModules: ['git-sz/common'],
           },
         ],
       },

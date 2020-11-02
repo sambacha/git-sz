@@ -5,7 +5,7 @@ export class Locker {
     const previousPromise = this.previousPromise;
     let resolve!: () => void;
 
-    const promise = new Promise<void>(r => {
+    const promise = new Promise<void>((r) => {
       resolve = r;
     });
     this.previousPromise = promise;

@@ -1,4 +1,4 @@
 export default () => ({
   registry: 'some-registry',
-  getTagName: pkg => `${pkg.name}-v${pkg.version}-git-sef`
+  getTagName: (pkg) => `${pkg.name}-v${pkg.version}-git-sef`,
 });

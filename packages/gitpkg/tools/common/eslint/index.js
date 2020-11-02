@@ -1,4 +1,4 @@
-module.exports = rootDir => ({
+module.exports = (rootDir) => ({
   root: true,
   overrides: [
     {

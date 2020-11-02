@@ -73,7 +73,7 @@ function packEntries(
   for (const chunk of chunks) {
     const getPromise = () =>
       new Promise((resolve, reject) => {
-        packEntry(pack, chunk, err => {
+        packEntry(pack, chunk, (err) => {
           if (err) reject(err);
           else resolve();
         });
@@ -91,7 +91,7 @@ function packEntries(
       .then(() => {
         callback();
       })
-      .catch(err => {
+      .catch((err) => {
         callback(err);
       });
   } else {
@@ -121,7 +121,7 @@ export class TarPack extends Duplex {
 
     packEntries(
       pack,
-      chunks.map(c => c.chunk),
+      chunks.map((c) => c.chunk),
       callback,
     );
   }

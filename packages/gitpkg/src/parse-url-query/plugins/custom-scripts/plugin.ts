@@ -17,7 +17,7 @@ export const customScriptsPlugin: PkgOptionsParserPlugin<
 > = (requestUrl, query, previousOptions) => {
   return {
     customScripts: Reflect.ownKeys(query)
-      .map(k => {
+      .map((k) => {
         if (queryKeyIsCustomScript(k)) {
           const v = getValueOfQuery(query, k, previousOptions);
           if (v) {

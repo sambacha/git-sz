@@ -38,7 +38,7 @@ export class TarTransform<T = never> extends Transform {
       .then(() => {
         callback();
       })
-      .catch(err => callback(err));
+      .catch((err) => callback(err));
   }
 
   _flush(callback: TransformCallback) {

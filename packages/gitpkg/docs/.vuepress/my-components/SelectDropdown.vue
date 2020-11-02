@@ -20,7 +20,7 @@ export default {
   data() {
     return {
       OpenIndicator: {
-        render: h =>
+        render: (h) =>
           h(ChevronDownIcon, { width: this.height, height: this.height }),
       },
     };

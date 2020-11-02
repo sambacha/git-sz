@@ -10,7 +10,7 @@ export const packEntry = (
   content?: string | Buffer,
 ) =>
   new Promise((resolve, reject) => {
-    const cb: tar.Callback = err => {
+    const cb: tar.Callback = (err) => {
       if (err) reject(err);
       else resolve();
     };

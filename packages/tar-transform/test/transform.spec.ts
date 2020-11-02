@@ -193,7 +193,7 @@ test("only specific sub folder", () =>
 
     const tar1 = Readable.from(genTar(10));
     const tar2 = Readable.from(
-      [...genTar(10)].filter(e => e.headers.name.startsWith("dir1/")),
+      [...genTar(10)].filter((e) => e.headers.name.startsWith("dir1/")),
     );
 
     const t = transform<never>({

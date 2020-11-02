@@ -56,7 +56,7 @@ function getPrivateTarExtract(
 
   const writableStreamPromise: Promise<import("stream").Duplex> | undefined =
     gzip === true || typeof gzip === "object"
-      ? import("zlib").then(zlib =>
+      ? import("zlib").then((zlib) =>
           zlib.createGunzip(gzip === true ? undefined : gzip),
         )
       : gzip === false
@@ -68,7 +68,7 @@ function getPrivateTarExtract(
         extract,
         setup: false,
         writable: undefined,
-        pending: writableStreamPromise.then(w => {
+        pending: writableStreamPromise.then((w) => {
           w.pipe(extract);
           tarExtract.writable = w;
           tarExtract.pending = undefined;
@@ -113,7 +113,7 @@ export class TarExtract extends Duplex {
       });
 
       if (
-        !writer.write(chunk, err => {
+        !writer.write(chunk, (err) => {
           if (err) reject(err);
           else resolve();
         })

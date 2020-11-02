@@ -28,7 +28,7 @@ async function* iterRandomChunk(
 test("pack to tar and tgz", () =>
   repeatAsync(() =>
     Promise.all(
-      [true, false, { level: 3 }].map(async gzip => {
+      [true, false, { level: 3 }].map(async (gzip) => {
         const p = pack({ gzip });
         const stdPack = tar.pack();
         let stdBin: Readable;
@@ -55,7 +55,7 @@ test("pack to tar and tgz", () =>
             for await (const chunk of stdSource) {
               const { headers, content } = chunk as TarEntryWithContent;
               await new Promise((resolve, reject) => {
-                stdPack.entry(headers, content, err => {
+                stdPack.entry(headers, content, (err) => {
                   if (err) reject(err);
                   else resolve();
                 });

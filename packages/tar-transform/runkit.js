@@ -110,7 +110,7 @@ exports.endpoint = async (req, resp) => {
 
 const urlRoot = process.env.RUNKIT_ENDPOINT_URL;
 const html = Object.keys(routes)
-  .map(route => {
+  .map((route) => {
     const url = urlRoot + "/" + route;
     return `
 <form method="get" action="${url}">

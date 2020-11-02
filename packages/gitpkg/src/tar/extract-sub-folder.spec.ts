@@ -25,7 +25,9 @@ test("extract sub folder", () => {
   return Promise.all([
     pipeline(read, t),
     expect(getEntries(t)).resolves.toEqual<TarEntry[]>(
-      [...tarEntries({ root: "" })].filter(e => e.headers.name.startsWith(sub)),
+      [...tarEntries({ root: "" })].filter((e) =>
+        e.headers.name.startsWith(sub),
+      ),
     ),
   ]);
 });

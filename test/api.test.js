@@ -1,25 +1,25 @@
 // SPDX-License-Identifier: MIT
 
-'use strict'
+'use strict';
 
-const async = require('async')
-const tape = require('tape')
+const async = require('async');
+const tape = require('tape');
 
-const gsz = require('../')
+const gsz = require('../');
 
-const fixtures = require('./fixtures')
+const fixtures = require('./fixtures');
 
 tape('js api', (t) => {
-  fixtures.init()
+  fixtures.init();
 
   // Verify tags
-  const api = new gsz.API(fixtures.repo)
+  const api = new gsz.API(fixtures.repo);
 
   const tags = [
     { name: 'tag-latest', ref: 'HEAD' },
     { name: 'tag-middle', ref: 'HEAD^' },
-    { name: 'tag-first', ref: 'HEAD^^', legacy: true }
-  ]
+    { name: 'tag-first', ref: 'HEAD^^', legacy: true },
+  ];
 
   async.waterfall(
     [
@@ -27,48 +27,48 @@ tape('js api', (t) => {
         async.forEachSeries(
           tags,
           (tag, callback) => {
-            api.sign(tag.name, tag.ref, { legacy: tag.legacy, insecure: true }, callback)
+            api.sign(tag.name, tag.ref, { legacy: tag.legacy, insecure: true }, callback);
           },
-          callback
-        )
+          callback,
+        );
       },
       (callback) => {
         async.mapSeries(
           tags,
           (tag, callback) => {
-            api.verify(tag.name, { insecure: true }, callback)
+            api.verify(tag.name, { insecure: true }, callback);
           },
-          callback
-        )
+          callback,
+        );
       },
       (results, callback) => {
-        t.deepEqual(results, [true, true, true], 'sign results')
+        t.deepEqual(results, [true, true, true], 'sign results');
 
-        const invalidTags = ['invalid-1', 'invalid-2', 'invalid-3']
+        const invalidTags = ['invalid-1', 'invalid-2', 'invalid-3'];
         async.mapSeries(
           invalidTags,
           (tag, callback) => {
             api.verify(tag, { insecure: true }, (err, result) => {
-              callback(null, { err: err, result: result })
-            })
+              callback(null, { err: err, result: result });
+            });
           },
-          callback
-        )
+          callback,
+        );
       },
       (results, callback) => {
-        t.ok(/EVTag.*mismatch/.test(results[0].err.message), 'invalid #1')
-        t.ok(/Secure-Tag.*mismatch/.test(results[1].err.message), 'invalid #2')
-        t.ok(/No.*found/.test(results[2].err.message), 'invalid #3')
-        t.ok(!results[0].result, 'invalid #1 result')
-        t.ok(!results[1].result, 'invalid #2 result')
-        t.ok(!results[2].result, 'invalid #3 result')
+        t.ok(/EVTag.*mismatch/.test(results[0].err.message), 'invalid #1');
+        t.ok(/Secure-Tag.*mismatch/.test(results[1].err.message), 'invalid #2');
+        t.ok(/No.*found/.test(results[2].err.message), 'invalid #3');
+        t.ok(!results[0].result, 'invalid #1 result');
+        t.ok(!results[1].result, 'invalid #2 result');
+        t.ok(!results[2].result, 'invalid #3 result');
 
-        callback(null)
-      }
+        callback(null);
+      },
     ],
     (err) => {
-      fixtures.destroy()
-      t.end(err)
-    }
-  )
-})
+      fixtures.destroy();
+      t.end(err);
+    },
+  );
+});
