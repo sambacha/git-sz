@@ -4,7 +4,8 @@
   "description": "Git tags with higher level of security",
   "main": "index.js",
   "bin": {
-    "gitsz": "bin/gitsz"
+    "gitsz": "bin/gitsz",
+    "tarsz": "bin/tarsz"
   },
   "scripts": {
     "lint": "npx prettier --loglevel debug --write . ",

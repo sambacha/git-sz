@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-var deterministic = require('./lib/taruerreotype.js')
+var deterministic = require('../lib/tar.js')
 
 process.stdin
   .pipe(deterministic())
