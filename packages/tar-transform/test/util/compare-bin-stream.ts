@@ -8,14 +8,14 @@ export async function binaryStreamsAreSame(
 ) {
   if (iterables.length === 0) return true;
 
-  const readableAndHashes = iterables.map(iter => ({
+  const readableAndHashes = iterables.map((iter) => ({
     readable: Readable.from(iter),
     hash: crypto.createHash("sha1").setEncoding("hex"),
   }));
 
-  await Promise.all(readableAndHashes.map(r => pipeline(r.readable, r.hash)));
+  await Promise.all(readableAndHashes.map((r) => pipeline(r.readable, r.hash)));
 
-  const hashes = readableAndHashes.map(r => r.hash.read());
+  const hashes = readableAndHashes.map((r) => r.hash.read());
 
-  return hashes.every(h => h === hashes[0]);
+  return hashes.every((h) => h === hashes[0]);
 }

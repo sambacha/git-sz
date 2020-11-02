@@ -25,7 +25,8 @@ export function* tarEntries({
   }
   for (let i = 0; i < count; i++) {
     const dirName =
-      root + [...new Array(i % depth).keys()].map(dir => `dir${dir}/`).join("");
+      root +
+      [...new Array(i % depth).keys()].map((dir) => `dir${dir}/`).join("");
 
     if (dirName && !dirs[dirName]) {
       dirs[dirName] = true;

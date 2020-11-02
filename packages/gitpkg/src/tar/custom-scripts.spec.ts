@@ -17,12 +17,12 @@ type TestCase = [
 
 const testCases = (): TestCase[] => [
   [{}, [], {}],
-  ...ADD_TYPES.map<TestCase>(type => [
+  ...ADD_TYPES.map<TestCase>((type) => [
     {},
     [{ name: "build", script: "tsc", type }],
     { build: "tsc" },
   ]),
-  ...ADD_TYPES.map<TestCase>(type => {
+  ...ADD_TYPES.map<TestCase>((type) => {
     const res = {
       append: "tsc && echo 'success'",
       prepend: "echo 'success' && tsc",
@@ -34,7 +34,7 @@ const testCases = (): TestCase[] => [
       { build: res[type] },
     ];
   }),
-  ...ADD_TYPES.map<TestCase>(type => {
+  ...ADD_TYPES.map<TestCase>((type) => {
     const res = {
       append: "tsc && echo 'success'",
       prepend: "echo 'success' && tsc",
@@ -92,7 +92,7 @@ test("add scripts to tar entry stream", () =>
   Promise.all(
     testCases()
       .map(([scripts, add, res]) => {
-        return [0, 5, -1].map(insertIndex => {
+        return [0, 5, -1].map((insertIndex) => {
           const r = Readable.from(
             tarEntriesWithPkgJson(insertIndex, JSON.stringify({ scripts }), {
               count: 10,

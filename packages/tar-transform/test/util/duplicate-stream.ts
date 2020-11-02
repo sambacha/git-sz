@@ -19,7 +19,7 @@ export function duplicateReadable(
   (async () => {
     for await (const chunk of r) {
       await Promise.all(
-        ps.map(async p => {
+        ps.map(async (p) => {
           let resolve: () => void;
           let reject: (err: Error) => void;
           const promise = new Promise((rsv, rjt) => {
@@ -27,7 +27,7 @@ export function duplicateReadable(
             reject = rjt;
           });
           if (
-            !p.pass.write(chunk, err => {
+            !p.pass.write(chunk, (err) => {
               if (err) reject(err);
               else resolve();
             })
@@ -50,8 +50,8 @@ export function duplicateReadable(
 
     await Promise.all(
       ps.map(
-        p =>
-          new Promise(resolve => {
+        (p) =>
+          new Promise((resolve) => {
             p.pass.end(() => {
               resolve();
             });
@@ -60,5 +60,5 @@ export function duplicateReadable(
     );
   })();
 
-  return ps.map(p => p.pass);
+  return ps.map((p) => p.pass);
 }

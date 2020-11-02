@@ -4,7 +4,7 @@ const { SITE_META_FILE, PATH_DEST } = require("./scripts/constants");
 const fs = require("fs").promises;
 const promiseGenerated = fs
   .readFile(SITE_META_FILE, "utf-8")
-  .then(str => JSON.parse(str));
+  .then((str) => JSON.parse(str));
 
 const GA_ID = process.env.GA_ID;
 

@@ -3,5 +3,5 @@
 module.exports = tarSz;
 
 function tarSz() {
-    // TODO
+  // TODO
 }

@@ -17,7 +17,7 @@ const files = [
 ];
 
 async function main() {
-  await Promise.all(files.map(f => copyFile(f, "dist/" + f)));
+  await Promise.all(files.map((f) => copyFile(f, "dist/" + f)));
 }
 
 main();

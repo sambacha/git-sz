@@ -8,7 +8,7 @@ function* range(n: number) {
 }
 
 function delay(t: number) {
-  return new Promise(resolve => setTimeout(resolve, t));
+  return new Promise((resolve) => setTimeout(resolve, t));
 }
 
 async function* delayed<T>(t: r.MaybeRandomNumber, gen: Iterable<T>) {

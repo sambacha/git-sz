@@ -3,20 +3,20 @@ const branchNamePrecedence = [
   "dev",
   "next",
   // tag vx.x.x
-  name => /[vV][0-9.]+.*/.test(name),
+  (name) => /[vV][0-9.]+.*/.test(name),
   "bug/",
   "feat/",
   "fix/",
 ];
 
 const getPrecedence = ({ commit }) => {
-  let i = branchNamePrecedence.findIndex(v =>
+  let i = branchNamePrecedence.findIndex((v) =>
     typeof v === "function" ? v(commit) : commit === v,
   );
 
   if (i === -1) {
     i = branchNamePrecedence.findIndex(
-      v => typeof v === "string" && commit.startsWith(v),
+      (v) => typeof v === "string" && commit.startsWith(v),
     );
     if (i !== -1) i += 10000;
   }
@@ -49,7 +49,7 @@ function customScriptToQueryParam(customScript) {
 function queryStringOf(commit, customScripts) {
   // postinstall=echo%20gitpkg&build=echo%20building
   const csPart = customScripts
-    .map(cs => customScriptToQueryParam(cs))
+    .map((cs) => customScriptToQueryParam(cs))
     .join("&");
 
   if (!csPart) return commit ? "?" + commit : "";
@@ -60,7 +60,7 @@ function apiFromCommitInfo(
   { commit, subdir, originalUrl, domain, userName, repoName },
   customScripts,
 ) {
-  customScripts = customScripts.filter(cs => cs.name && cs.script);
+  customScripts = customScripts.filter((cs) => cs.name && cs.script);
 
   const repo = userName + "/" + repoName;
 
@@ -165,12 +165,12 @@ export const apiFromUrl = (url, customScripts) => {
     type: "choice",
     data,
     possibleApis: possibleCommitAndSubDirs
-      .map(p => {
+      .map((p) => {
         const subdir = p.subdir.join("/");
         const commit = p.commit.join("/");
         return apiFromCommitInfo({ ...data, subdir, commit }, customScripts);
       })
-      .map(info => ({
+      .map((info) => ({
         info,
         precedence: getPrecedence({
           commit: info.data.commit,
@@ -178,6 +178,6 @@ export const apiFromUrl = (url, customScripts) => {
         }),
       }))
       .sort((a, b) => a.precedence - b.precedence)
-      .map(a => a.info),
+      .map((a) => a.info),
   };
 };

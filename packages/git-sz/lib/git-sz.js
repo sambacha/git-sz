@@ -3,5 +3,5 @@
 module.exports = gitSz;
 
 function gitSz() {
-    // TODO
+  // TODO
 }

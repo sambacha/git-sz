@@ -13,11 +13,11 @@ const entryFiles = Object.assign(
   {},
   ...glob
     .sync("src/*.ts")
-    .map(f => [path.parse(f).name, f])
+    .map((f) => [path.parse(f).name, f])
     .map(kvToObj),
   ...glob
     .sync("src/*/index.ts")
-    .map(f => [path.basename(path.dirname(f)), f])
+    .map((f) => [path.basename(path.dirname(f)), f])
     .map(kvToObj),
 );
 

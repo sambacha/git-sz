@@ -8,7 +8,7 @@
         <source-commit-icon :width="size" :height="size" />
       </template>
       <button-group
-        style="flex: 1 1 0"
+        style="flex: 1 1 0;"
         :entries="selectEntries"
         v-model="selectedIndex"
         name="branch"

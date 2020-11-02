@@ -55,7 +55,7 @@ test("extract tar and tgz", () =>
                 ];
 
                 if (
-                  !stdResIter.write(entry, err => {
+                  !stdResIter.write(entry, (err) => {
                     if (err) rjt(err);
                     else rsv();
                   })
@@ -69,11 +69,11 @@ test("extract tar and tgz", () =>
 
                 next();
               })
-              .on("error", err => {
+              .on("error", (err) => {
                 reject(err);
               })
               .on("finish", () => {
-                stdResIterWriteLock.lock().then(unlock => {
+                stdResIterWriteLock.lock().then((unlock) => {
                   stdResIter.end(() => {
                     unlock();
                     resolve();

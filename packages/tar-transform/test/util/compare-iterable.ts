@@ -113,7 +113,7 @@ export function iterablesAreSameSet<T>({
       let found: typeof context[number] | undefined = undefined;
       for (const ctx of context) {
         if (
-          ctx.matched.every(matchedIdx => matchedIdx !== idx) &&
+          ctx.matched.every((matchedIdx) => matchedIdx !== idx) &&
           (await compare(ctx.data, item, ctx.matched[0], idx))
         ) {
           found = ctx;
@@ -129,7 +129,7 @@ export function iterablesAreSameSet<T>({
       unlock();
     },
     done() {
-      return context.every(ctx => {
+      return context.every((ctx) => {
         const sorted = [...ctx.matched].sort();
         return sorted.length === n && sorted.every((idx, i) => idx === i);
       });
