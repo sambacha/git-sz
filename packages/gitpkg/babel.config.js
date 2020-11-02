@@ -1,1 +1,1 @@
-module.exports = require("@gitpkg/common/babel")();
+module.exports = require("git-sz/common/babel")();
