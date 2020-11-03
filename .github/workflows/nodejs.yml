@@ -33,6 +33,6 @@ jobs:
     - name: lerna install, build, and test
       run: |
         npm install lerna -g
-        lerna exec  yarn --prefer-offline
+        lerna exec yarn install --prefer-offline
       env:
         CI: true
