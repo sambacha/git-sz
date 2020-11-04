@@ -33,5 +33,3 @@ export interface IPkgVersions {
   [k: string]: string
 }
 ```
-
-

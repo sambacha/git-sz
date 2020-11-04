@@ -2,7 +2,6 @@
 
 # Git
 
-
 :unicorn: Features:
 
 - sub folder of a github repo as yarn / npm dependency

@@ -5,7 +5,6 @@ on: ['pull_request']
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -13,16 +12,16 @@ jobs:
         node-version: ['12.x']
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-      
-    - name: lerna install, build, and test
-      run: |
-        npm install lerna -g
-        npm install
-        lerna bootstrap
-      env:
-        CI: false
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: lerna install, build, and test
+        run: |
+          npm install lerna -g
+          npm install
+          lerna bootstrap
+        env:
+          CI: false
