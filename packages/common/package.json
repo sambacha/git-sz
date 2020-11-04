@@ -9,5 +9,5 @@
     "node": ">= 6"
   },
   "license": "MIT",
-  "private": true
+  "private": false
 }
