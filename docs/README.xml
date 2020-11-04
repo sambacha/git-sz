@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<?asciidoc-toc?>
+<?asciidoc-numbered?>
+
+<article lang="en">
+<articleinfo>
+    <date>2020-11-01</date>
+</articleinfo>
+<section id="_gitsz">
+<title>gitsz</title>
+<blockquote>
+<simpara>a more deterministic and secure source artifact creation process</simpara>
+</blockquote>
+<itemizedlist>
+<listitem>
+<simpara>
+<ulink url="#gitsz">gitsz</ulink>
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+<ulink url="#motivation">Motivation</ulink>
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+<ulink url="#replacing-tarballs">Replacing tarballs</ulink>
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+<ulink url="#cannonical-git-commit">Cannonical Git Commit</ulink>
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+<ulink url="#usage">Usage</ulink>
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+<ulink url="#generate-tag">generate tag</ulink>
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+<ulink url="#verify-tag">verify tag</ulink>
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+<ulink url="#git-secure-tag">git secure tag</ulink>
+</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara>
+<ulink url="#reference-case-study">Reference Case Study</ulink>
+</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara>
+<ulink url="#implementation">Implementation</ulink>
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+<ulink url="#installation">Installation</ulink>
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+<ulink url="#usage-1">Usage</ulink>
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+<ulink url="#implementation-and-contributors">Implementation and
+Contributors</ulink>
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+<ulink url="#license">License</ulink>
+</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+<section id="_motivation">
+<title>Motivation</title>
+<blockquote>
+<simpara>$GIT_TAG should be the primary artifact</simpara>
+</blockquote>
+<simpara>With the current design, it is necessary to use Git to clone the
+repository and use Git to walk the trees. This means that Git is exposed
+to untrusted data before the signature is verified, making it part of
+the TCB (Trusted Computing Base).</simpara>
+<blockquote>
+<simpara>This is not desirable because Git has a large footprint in the
+engineering ecosystem</simpara>
+</blockquote>
+<simpara>At least, the recommended steps should verify the signature before a
+checkout is performed (which is probably the most risky operation
+because it involves partially attacker-controlled file system
+operations).</simpara>
+<simpara>The point of signing a <literal>git</literal> commit is to authenticate history to future
+consumers so the fact that history was <emphasis>tampered with deliberately</emphasis>
+needs to be preserved in the signature because it is possible to alter
+the exact semantics/content of the commit.</simpara>
+<blockquote>
+<simpara><literal>git</literal> uses SHA-1 hashes when signing tag. SHA-1 is generally deprecated
+and is not a collision-safe anymore (though, <emphasis role="strong"><phrase role="line-through">collisions
+are yet to come</phrase></emphasis> pre-image attack is yet to come).</simpara>
+</blockquote>
+<section id="_replacing_tarballs">
+<title>Replacing tarballs</title>
+<simpara>What gitsz (i.e. git-evtag) implements is an algorithm for providing a
+strong checksum over the complete source objects for the target:</simpara>
+<programlisting language="diff" linenumbering="unnumbered">-commit (- trees - blobs - submodules)
++commit (+ trees + blobs + submodules)</programlisting>
+<simpara>Then it&#8217;s integrated with GPG for end-to-end verification. (Although,
+one could also wrap the checksum in X.509 or some other public/private
+signature solution).</simpara>
+<simpara>This is similar to what project distributors often accomplish by using
+git archive, or make dist, or similar tools to generate a tarball, and
+then checksumming that, and (ideally) providing a GPG signature covering
+it.</simpara>
+<simpara>If the checksum is not reproducible, it becomes much more difficult to
+easily and reliably verify that a generated tarball contains the same
+source code as a particular git commit.</simpara>
+<section id="_cannonical_git_commit">
+<title>Cannonical Git Commit</title>
+<programlisting language="bash" linenumbering="unnumbered">$ GIT_AUTHOR_DATE="Thu, 01 Jan 1970 00:00:00 +0000" GIT_COMMITTER_DATE="Thu, 01 Jan 1970 00:00:00 +0000" git commit --allow-empty -m 'Initial commit'</programlisting>
+</section>
+<section id="_usage">
+<title>Usage</title>
+<programlisting language="bash" linenumbering="unnumbered">Usage: gitsz [-s | -u &lt;keyid&gt;] [-m &lt;msg&gt;]
+                      &lt;tagname&gt; [&lt;commit&gt; | &lt;object&gt;]
+
+Commands:
+  hash  print hash of repository contents
+
+Options:
+  -v, --verify  Verify the gpg signature of a given tag                [boolean]
+  --insecure    Do not sign the tag                                    [boolean]
+  -h, --help    Show help                                              [boolean]</programlisting>
+<simpara>====== generate tag</simpara>
+<simpara><literal>git secure-tag -s v2.5.0</literal></simpara>
+<simpara>====== verify tag</simpara>
+<programlisting language="bash" linenumbering="unnumbered">$ git secure-tag -v v2.5.0
+gpg: Signature made Wed Oct 28 00:16:58 2020 PDT
+gpg:                using RSA key C00B2090F23C5629029111CBF5D2A7216C51FB94
+gpg: Good signature from "sam bacha &lt;sam@freighttrust.com&gt;" [ultimate]
+gpg:                 aka "Freight Trust Corp &lt;sam@freighttrust.com&gt;" [ultimate]
+Good Git-EVTag-v0-SHA512 hash</programlisting>
+<simpara>====== git secure tag</simpara>
+<programlisting language="bash" linenumbering="unnumbered">$ gitsz hash
+bdf3cd8f2a4e29a5cf86cbd7fe815583b0e78b4efe4759fc7204b5dfb6fb928fde138f7fcfcae19e241b25d210b3c3147cb7b5327654ae3dd1ae02d4908e4671</programlisting>
+</section>
+</section>
+<section id="_reference_case_study">
+<title>Reference Case Study</title>
+<simpara><ulink url="https://github.com/sambacha/BPBDTL/commit/21687a1a7d5f3c26e9c06fa23547fca4a09178a2">github/sambacha/BPBDTL/commit/21687a1a7d5f3c26e9c06fa23547fca4a09178a2</ulink></simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+In this scenario, I signed a commit at approx. 0 UNIX EPOCH time using
+another user&#8217;s credentials, and by credentials I mean just using their
+<literal>email@address</literal> and <literal>user name</literal>. No other passwords, etc, is required.
+Although GitHub does not say <literal>verified</literal> for the commit, it displays the
+user&#8217;s avatar, and may be overlooked without more careful examination.
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+</section>
+<section id="_implementation">
+<title>Implementation</title>
+<simpara><literal>gitsz</literal> runs <literal>cat-file</literal> recursively for each entry (sorted
+alphabetically), enters submodules (if present), and hashes
+file/directory names, file contents, and submodules (recursively again)
+into a resulting <literal>Git-EVTag-v0-SHA512: ...</literal> SHA512 digest.</simpara>
+</section>
+<section id="_installation">
+<title>Installation</title>
+<programlisting language="bash" linenumbering="unnumbered">npm install -g gitsz</programlisting>
+</section>
+<section id="_usage_2">
+<title>Usage</title>
+<programlisting language="bash" linenumbering="unnumbered"># Sign
+gitsz v1.20.7 -m "My tag annotation"
+
+# Verify
+gitsz -v v1.20.7</programlisting>
+</section>
+<section id="_implementation_and_contributors">
+<title>Implementation and Contributors</title>
+<simpara>Largely inspired by:</simpara>
+<simpara><ulink url="https://github.com/cgwalters/git-evtag">@gwalters/git-evtag</ulink></simpara>
+<simpara>Fedor Indutny, 2016.</simpara>
+</section>
+<section id="_license">
+<title>License</title>
+<simpara>SPDX-License-Identifier: MIT</simpara>
+</section>
+</section>
+</article>
