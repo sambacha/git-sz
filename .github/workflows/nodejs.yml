@@ -22,6 +22,6 @@ jobs:
     - name: lerna install, build, and test
       run: |
         npm install lerna -g
-        lerna bootstrap
+        make build-all
       env:
         CI: false
