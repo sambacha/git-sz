@@ -1,7 +1,7 @@
 {
   "build": {
     "env": {
-      "GA_ID": "@ga_id_gitpkg"
+  
     }
   },
   "rewrites": [

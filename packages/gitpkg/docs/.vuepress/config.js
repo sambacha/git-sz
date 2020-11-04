@@ -18,7 +18,7 @@ module.exports = async () => {
       nav: [
         { text: "Home", link: "/" },
         { text: "Guide", link: "/guide/" },
-        { text: "GitHub", link: "https://github.com/EqualMa/gitpkg" },
+        { text: "GitHub", link: "https://github.com/sambacha/git-sz" },
       ],
     },
     dest: PATH_DEST,
