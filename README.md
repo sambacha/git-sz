@@ -50,8 +50,10 @@ the exact semantics/content of the commit.
 What gitsz (i.e. git-evtag) implements is an algorithm for providing a
 strong checksum over the complete source objects for the target:
 
+```diff
     -commit (- trees - blobs - submodules)
     +commit (+ trees + blobs + submodules)
+```
 
 Then it’s integrated with GPG for end-to-end verification. (Although,
 one could also wrap the checksum in X.509 or some other public/private
@@ -67,11 +69,13 @@ easily and reliably verify that a generated tarball contains the same
 source code as a particular git commit.
 
 #### Cannonical Git Commit
-
+```bash
     $ GIT_AUTHOR_DATE="Thu, 01 Jan 1970 00:00:00 +0000" GIT_COMMITTER_DATE="Thu, 01 Jan 1970 00:00:00 +0000" git commit --allow-empty -m 'Initial commit'
+```
 
 #### Usage
 
+```bash
     Usage: gitsz [-s | -u <keyid>] [-m <msg>]
                           <tagname> [<commit> | <object>]
 
@@ -82,24 +86,29 @@ source code as a particular git commit.
       -v, --verify  Verify the gpg signature of a given tag                [boolean]
       --insecure    Do not sign the tag                                    [boolean]
       -h, --help    Show help                                              [boolean]
+```
 
-====== generate tag
+##### generate tag
 
 `git secure-tag -s v2.5.0`
 
-====== verify tag
+###### verify tag
 
+```bash
     $ git secure-tag -v v2.5.0
     gpg: Signature made Wed Oct 28 00:16:58 2020 PDT
     gpg:                using RSA key C00B2090F23C5629029111CBF5D2A7216C51FB94
     gpg: Good signature from "sam bacha <sam@freighttrust.com>" [ultimate]
     gpg:                 aka "Freight Trust Corp <sam@freighttrust.com>" [ultimate]
     Good Git-EVTag-v0-SHA512 hash
+```
 
-====== git secure tag
+##### git-sz
 
+```bash
     $ gitsz hash
     bdf3cd8f2a4e29a5cf86cbd7fe815583b0e78b4efe4759fc7204b5dfb6fb928fde138f7fcfcae19e241b25d210b3c3147cb7b5327654ae3dd1ae02d4908e4671
+```
 
 ### Reference Case Study
 
