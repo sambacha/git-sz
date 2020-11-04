@@ -1,5 +1,5 @@
 import * as codes from "./http_status_code";
-import { pipelineToDownloadGitPkg, getDefaultParser } from "@gitpkg/core";
+import { pipelineToDownloadGitPkg, getDefaultParser } from "gitsz-package/core";
 import * as stream from "stream";
 import { promisify } from "util";
 import { extractInfoFromHttpError } from "./extract-http-error";

@@ -1,5 +1,5 @@
 {
-  "name": "@gitpkg/site",
+  "name": "gitsz-package/site",
   "version": "0.1.0",
   "license": "MIT",
   "private": true,
@@ -41,7 +41,7 @@
     "typescript": "^3.7.5"
   },
   "dependencies": {
-    "@gitpkg/core": "^1.0.0-alpha"
+    "gitsz-package/core": "^1.0.0-alpha"
   },
   "husky": {
     "hooks": {
