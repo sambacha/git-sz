@@ -11,14 +11,14 @@
     </template>
     <input
       ref="textInput"
-      class="copy-text-input gitpkg-input with-right"
+      class="copy-text-input gitsef-input with-right"
       :class="{ success: copyState === true }"
       type="text"
       :value="text"
       readonly
     />
     <button
-      class="gitpkg-button icon with-left"
+      class="gitsef-button icon with-left"
       :class="{
         success: copyState === true,
         error: copyState === false,

@@ -35,7 +35,7 @@
         need to use GitPkg.
       </template>
       <button
-        class="gitpkg-button"
+        class="gitsef-button"
         style="flex: 1 1 0;"
         type="button"
         @click="showSuggested = !showSuggested"

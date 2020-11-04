@@ -126,35 +126,35 @@ The `package.json` is like:
 }
 ```
 
-- To **replace** the original, just use `scripts.postinstall=command-from-gitpkg`,
+- To **replace** the original, just use `scripts.postinstall=command-from-gitsef`,
   then the generated `package.json` will be like:
 
   ```json
   {
     "scripts": {
-      "postinstall": "command-from-gitpkg"
+      "postinstall": "command-from-gitsef"
     }
   }
   ```
 
-- To **append** to the original, add `&&` (encoded as `%26%26`) **before** your script content: `scripts.postinstall=%26%26command-from-gitpkg`.
+- To **append** to the original, add `&&` (encoded as `%26%26`) **before** your script content: `scripts.postinstall=%26%26command-from-gitsef`.
   Then the generated `package.json` will be like:
 
   ```json
   {
     "scripts": {
-      "postinstall": "node original-install.js && command-from-gitpkg"
+      "postinstall": "node original-install.js && command-from-gitsef"
     }
   }
   ```
 
-- To **prepend** to the original, add `&&` **after** your script content: `scripts.postinstall=command-from-gitpkg%26%26`.
+- To **prepend** to the original, add `&&` **after** your script content: `scripts.postinstall=command-from-gitsef%26%26`.
   Then the generated `package.json` will be like:
 
   ```json
   {
     "scripts": {
-      "postinstall": "command-from-gitpkg && node original-install.js"
+      "postinstall": "command-from-gitsef && node original-install.js"
     }
   }
   ```
@@ -195,8 +195,8 @@ The sub folder of this repo only contains typescript source code so we need to u
 `scripts.postinstall=npm install --ignore-scripts && npm run build`
 
 ```shell
-mkdir hello-gitpkg
-cd hello-gitpkg
+mkdir hello-gitsef
+cd hello-gitsef
 npm init -y
 npm install 'https://gitsef.com/sambacha/git-sz-hello/packages/hello-ts?master&scripts.postinstall=npm%20install%20--ignore-scripts%20%26%26%20npm%20run%20build'
 ```

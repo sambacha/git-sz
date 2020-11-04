@@ -15,7 +15,7 @@
       </div>
     </template>
     <button
-      class="gitpkg-button"
+      class="gitsef-button"
       style="flex: 1 1 0;"
       type="button"
       @click="addCustomScript"
@@ -23,7 +23,7 @@
       Add a custom script
     </button>
     <button
-      class="gitpkg-button icon with-left"
+      class="gitsef-button icon with-left"
       type="button"
       @click="seeCustomScriptHelp"
     >

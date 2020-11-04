@@ -1,4 +1,4 @@
-.gitpkg-select.v-select
+.gitsef-select.v-select
   padding 0
   position relative
   height $unitSize
@@ -24,7 +24,7 @@
       display flex
 
       > *
-        @extend .gitpkg-button
+        @extend .gitsef-button
         display flex
         justify-content center
         align-items center
@@ -70,14 +70,14 @@
     background white
 
     .vs__dropdown-option
-      @extend .gitpkg-button
+      @extend .gitsef-button
       border-width 0
       overflow visible
       &.vs__dropdown-option--selected
         background-color $accentColor
         color white
       &.vs__dropdown-option--highlight
-        @extend .gitpkg-button:hover
+        @extend .gitsef-button:hover
 
   &.relaxed .vs__dropdown-toggle
     border 0

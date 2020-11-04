@@ -3,7 +3,7 @@
     <label
       v-for="(e, i) of entries"
       :key="e.value"
-      class="gitpkg-button group-button-entry with-right"
+      class="gitsef-button group-button-entry with-right"
       :class="{
         checked: selectedValue === e.value,
       }"

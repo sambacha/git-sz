@@ -1,8 +1,8 @@
 <template>
   <div
-    class="gitpkg-container"
+    class="gitsef-container"
     :class="{
-      'gitpkg-preview': preview,
+      'gitsef-preview': preview,
     }"
   >
     <div class="input-container">
@@ -14,14 +14,14 @@
           <github-icon :width="size" :height="size" />
         </template>
         <input
-          class="gitpkg-input main-input with-right"
+          class="gitsef-input main-input with-right"
           :class="{ error }"
           autofocus
           v-model="url"
           :placeholder="placeholder"
         />
         <button
-          class="gitpkg-button icon with-left"
+          class="gitsef-button icon with-left"
           type="button"
           @click="url = ''"
         >
@@ -83,12 +83,12 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.gitpkg-container
+.gitsef-container
   max-width 40em
   margin 1em auto
 
-  &.gitpkg-preview > :not(.input-container),
-  &.gitpkg-preview > :not(.input-container) >>> *
+  &.gitsef-preview > :not(.input-container),
+  &.gitsef-preview > :not(.input-container) >>> *
     color lightgrey
 
 .input-container

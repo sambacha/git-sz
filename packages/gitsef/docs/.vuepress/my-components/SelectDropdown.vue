@@ -1,6 +1,6 @@
 <template>
   <v-select
-    class="gitpkg-select"
+    class="gitsef-select"
     v-bind="$attrs"
     v-on="$listeners"
     :components="{ OpenIndicator }"

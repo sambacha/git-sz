@@ -24,7 +24,7 @@ const getPrecedence = ({ commit }) => {
   return i === -1 ? Infinity : i;
 };
 
-const API_BASE = "https://gitpkg.now.sh/";
+const API_BASE = "https://gitsef.now.sh/";
 const REGEX_URL = /^https?:\/\/([^/?#]+)\/([^/?#]+)\/([^/?#]+)(?:(?:\/tree\/([^#?]+))|\/)?([#?].*)?$/;
 
 function customScriptToQueryParam(customScript) {
@@ -47,7 +47,7 @@ function customScriptToQueryParam(customScript) {
 }
 
 function queryStringOf(commit, customScripts) {
-  // postinstall=echo%20gitpkg&build=echo%20building
+  // postinstall=echo%20gitsef&build=echo%20building
   const csPart = customScripts
     .map((cs) => customScriptToQueryParam(cs))
     .join("&");

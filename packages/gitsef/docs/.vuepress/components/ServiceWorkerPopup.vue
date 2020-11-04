@@ -1,6 +1,6 @@
 <template>
   <SWUpdatePopup v-slot="{ enabled, reload, message, buttonText }">
-    <div v-if="enabled" class="gitpkg-sw-update-popup">
+    <div v-if="enabled" class="gitsef-sw-update-popup">
       {{ message }}<br />
       <button @click="reload">{{ buttonText }}</button>
     </div>
@@ -15,7 +15,7 @@ export default {
 };
 </script>
 <style lang="stylus" scoped>
-.gitpkg-sw-update-popup
+.gitsef-sw-update-popup
   position fixed
   text-align center
   right 1em
@@ -28,7 +28,7 @@ export default {
   transition all ease 0.2s 0s, box-shadow ease-out 0.4s 0s
   z-index 2
 
-.gitpkg-sw-update-popup button
+.gitsef-sw-update-popup button
   margin-top 0.5em
   padding 0.4em 1.8em
   border-width 0
