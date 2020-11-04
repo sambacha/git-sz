@@ -1,37 +1,25 @@
 {
   "name": "gitsz",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "description": "Git tags with higher level of security",
+  "author": "SEE CONTRIBUTORS",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/sambacha/gitsz.git"
+  },
   "main": "index.js",
   "bin": {
     "gitsz": "bin/gitsz",
     "tarsz": "bin/tarsz"
   },
   "scripts": {
-    "lint": "npx prettier --loglevel debug --write . ",
     "format": "npx standard",
+    "lint": "npx prettier --loglevel debug --write . ",
     "test": "tape test/**/*.js | faucet"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/sambacha/gitsz.git"
-  },
-  "keywords": [
-    "git",
-    "secure",
-    "tag",
-    "sha256",
-    "gpg",
-    "signature",
-    "verify",
-    "sign"
-  ],
-  "author": "SEE CONTRIBUTORS",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/sambacha/gitsz/issues"
   },
-  "homepage": "https://github.com/sambacha/gitszg#readme",
   "dependencies": {
     "async": "^3.2.0",
     "duplexer": "^0.1.2",
@@ -44,8 +32,21 @@
     "faucet": "0.0.1",
     "istanbul": "^0.4.5",
     "lerna": "^3.22.1",
+    "lerna-ci": "^0.0.6",
     "mocha": "^8.2.0",
     "rimraf": "^3.0.2",
     "tape": "^5.0.1"
-  }
+  },
+  "homepage": "https://github.com/sambacha/gitszg#readme",
+  "keywords": [
+    "git",
+    "gpg",
+    "secure",
+    "sha256",
+    "sign",
+    "signature",
+    "tag",
+    "verify"
+  ],
+  "license": "MIT"
 }

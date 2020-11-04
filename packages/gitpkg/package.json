@@ -2,13 +2,11 @@
   "name": "gitsz-package",
   "version": "1.0.0-alpha",
   "main": "dist/index.js",
-  "types": "dist/index.d.js",
-  "license": "MIT",
   "scripts": {
-    "test": "jest",
-    "precommit": "lint-staged",
+    "build": "rimraf dist && tsc -p tsconfig.prod.json --outDir dist --module CommonJS --declaration --sourceMap --declarationMap",
     "lint:fix": "eslint --cache --max-warnings 0 --fix",
-    "build": "rimraf dist && tsc -p tsconfig.prod.json --outDir dist --module CommonJS --declaration --sourceMap --declarationMap"
+    "precommit": "lint-staged",
+    "test": "jest"
   },
   "dependencies": {
     "got": "^10.5.5",
@@ -38,5 +36,7 @@
     "ts-jest": "^25.2.1",
     "ts-node": "^8.6.2",
     "typescript": "^3.7.5"
-  }
+  },
+  "license": "MIT",
+  "types": "dist/index.d.js"
 }
