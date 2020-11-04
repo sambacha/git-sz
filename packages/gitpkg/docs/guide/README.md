@@ -2,20 +2,20 @@
 sidebar: auto
 ---
 
-# GitPkg Guide
+# GitSef Guide
 
-## Simplest API
+## Overview - API
 
 - Use a sub folder of a repo as dependency (master branch will be used)
 
   ```
-  https://gitpkg.now.sh/<repo>/<subdir>
+  https://gitsef.com/<repo>/<subdir>
   ```
 
 - If you want to use another branch or commit instead
 
   ```
-  https://gitpkg.now.sh/<repo>/<subdir>?<commit-ish>
+  https://gitsef.com/<repo>/<subdir>?<commit-ish>
   ```
 
   ::: tip
@@ -28,9 +28,9 @@ sidebar: auto
 
 - In fact, usage without sub folder is also available:
 
-  `https://gitpkg.now.sh/<repo>`
+  `https://gitsef.com/<repo>`
 
-  `https://gitpkg.now.sh/<repo>?<commit-ish>`
+  `https://gitsef.com/<repo>?<commit-ish>`
 
   But `yarn add` and `npm install` support using github url directly:
 
@@ -44,23 +44,23 @@ Examples:
 yarn init -y
 
 # dep: repo=[sambacha/git-sz-hello] > sub folder=[packages/hello]
-yarn add https://gitpkg.now.sh/sambacha/git-sz-hello/packages/hello
+yarn add https://gitsef.com/sambacha/git-sz-hello/packages/hello
 
 # dep: [sambacha/git-sz-hello] > [packages/core] # branch=[feat/md]
-yarn add https://gitpkg.now.sh/sambacha/git-sz-hello/packages/core?feat/md
+yarn add https://gitsef.com/sambacha/git-sz-hello/packages/core?feat/md
 ```
 
 ## More Formal API
 
 ```
-https://gitpkg.now.sh/pkg?url=<repo>/<subdir>
-https://gitpkg.now.sh/pkg?url=<repo>/<subdir>&commit=<commit-ish>
+https://gitsef.com/pkg?url=<repo>/<subdir>
+https://gitsef.com/pkg?url=<repo>/<subdir>&commit=<commit-ish>
 ```
 
 Or if you want to make the file format clear:
 
 ```
-https://gitpkg.now.sh/pkg.tgz?url=&commit=
+https://gitsef.com/pkg.tgz?url=&commit=
 ```
 
 ## Custom Scripts
@@ -89,14 +89,14 @@ If you don't want to use the UI, you can setup the url by your self
 - Simplest API
 
   ```
-  https://gitpkg.now.sh/<repo>/<subdir>?<commit-ish>&scripts.<script-name>=<script-content>
+  https://gitsef.com/<repo>/<subdir>?<commit-ish>&scripts.<script-name>=<script-content>
   ```
 
 - More Formal API
 
   ```
-  https://gitpkg.now.sh/pkg?url=<repo>/<subdir>&scripts.<script-name>=<script-content>
-  https://gitpkg.now.sh/pkg?url=<repo>/<subdir>&commit=<commit-ish>&scripts.<script-name>=<script-content>
+  https://gitsef.com/pkg?url=<repo>/<subdir>&scripts.<script-name>=<script-content>
+  https://gitsef.com/pkg?url=<repo>/<subdir>&commit=<commit-ish>&scripts.<script-name>=<script-content>
   ```
 
 ::: warning
@@ -198,7 +198,7 @@ The sub folder of this repo only contains typescript source code so we need to u
 mkdir hello-gitpkg
 cd hello-gitpkg
 npm init -y
-npm install 'https://gitpkg.now.sh/sambacha/git-sz-hello/packages/hello-ts?master&scripts.postinstall=npm%20install%20--ignore-scripts%20%26%26%20npm%20run%20build'
+npm install 'https://gitsef.com/sambacha/git-sz-hello/packages/hello-ts?master&scripts.postinstall=npm%20install%20--ignore-scripts%20%26%26%20npm%20run%20build'
 ```
 
 Then make a new file `test.js`

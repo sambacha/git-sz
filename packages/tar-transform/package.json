@@ -1,16 +1,7 @@
 {
-  "name": "tar-transform",
+  "name": "reproducible-tar",
   "version": "1.0.0",
   "description": "extract, transform and re-pack tarball entries in form of stream",
-  "author": {
-    "name": "EqualMa",
-    "email": "equalma@outlook.com",
-    "url": "https://github.com/EqualMa"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/EqualMa/tar-transform.git"
-  },
   "main": "dist/index.js",
   "module": "dist/es/index.js",
   "scripts": {

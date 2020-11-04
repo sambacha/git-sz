@@ -1,7 +1,7 @@
 {
-  "name": "GitPkg",
-  "short_name": "GitPkg",
-  "description": "Using sub folders of a repo as yarn/npm dependencies made easy",
+  "name": "GitSef",
+  "short_name": "GitSef",
+  "description": "secure git-package manager for monorepos and more",
   "background_color": "white",
   "categories": ["utilities", "dev"],
   "display": "standalone",
