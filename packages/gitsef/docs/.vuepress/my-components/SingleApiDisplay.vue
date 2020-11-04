@@ -31,8 +31,13 @@
 
     <action-bar v-if="api.type === 'warn' && api.warnType === 'suggest-to-use'">
       <template #text>
+<<<<<<< HEAD
         It seems that no sub folder or custom scripts are utilized, only basic package features
         are supported.
+=======
+        It seems that no sub folder or custom scripts are specified so you don't
+        need to use GitPkg.
+>>>>>>> 999958197d8fd56685e2978eb71f5a4c90043805
       </template>
       <button
         class="gitpkg-button"
@@ -42,7 +47,11 @@
       >
         {{
           showSuggested
+<<<<<<< HEAD
             ? "See Git-Sef  API (experimental)"
+=======
+            ? "See GitPkg API (not recommended)"
+>>>>>>> 999958197d8fd56685e2978eb71f5a4c90043805
             : "Show recommended commands"
         }}
       </button>
