@@ -7,3 +7,6 @@ test/fixtures/scenario/
 
 # Local Netlify folder
 .netlify
+packages/gitpkg/public/
+packages/gitpkg/dist/
+.vercel
