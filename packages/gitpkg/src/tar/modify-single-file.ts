@@ -1,4 +1,4 @@
-import { transform, TarEntry, TarEntryTransformer } from "tar-transform";
+import { transform, TarEntry, TarEntryTransformer } from "reproducible-tar";
 
 type MaybePromise<T> = T | Promise<T>;
 

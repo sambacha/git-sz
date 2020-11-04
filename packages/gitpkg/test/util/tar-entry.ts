@@ -1,4 +1,4 @@
-import { TarEntry, isTarEntry } from "tar-transform";
+import { TarEntry, isTarEntry } from "reproducible-tar";
 import { Readable } from "stream";
 
 export async function getEntries(r: Readable) {

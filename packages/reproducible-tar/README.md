@@ -1,7 +1,7 @@
-# tar-transform
+# reproducible-tar
 
-[![npm package tar-transform](https://img.shields.io/npm/v/tar-transform?style=flat-square)](http://npm.im/tar-transform)
-[![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/EqualMa/tar-transform/dev/typescript?style=flat-square)]()
+[![npm package reproducible-tar](https://img.shields.io/npm/v/reproducible-tar?style=flat-square)](http://npm.im/reproducible-tar)
+[![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/EqualMa/reproducible-tar/dev/typescript?style=flat-square)]()
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square)](https://github.com/semantic-release/semantic-release)
 
 a Node.js library to extract, transform and re-pack tarball entries in form of stream
@@ -9,18 +9,18 @@ a Node.js library to extract, transform and re-pack tarball entries in form of s
 ## Install
 
 ```shell
-npm install tar-transform
-yarn add tar-transform
+npm install reproducible-tar
+yarn add reproducible-tar
 ```
 
 ## Usage
 
 ### :telescope: extract (gzipped) tarball as a stream of tar entries
 
-[![Try tar-transform extract in RunKit](https://img.shields.io/badge/%F0%9F%94%AD%20try%20in-RunKit-f55fa6.svg?labelColor=green&style=for-the-badge)](https://runkit.com/equalma/tar-transform-extract)
+[![Try reproducible-tar extract in RunKit](https://img.shields.io/badge/%F0%9F%94%AD%20try%20in-RunKit-f55fa6.svg?labelColor=green&style=for-the-badge)](https://runkit.com/equalma/reproducible-tar-extract)
 
 ```js
-const tt = require("tar-transform");
+const tt = require("reproducible-tar");
 const fetch = require("node-fetch");
 
 const extractStream = tt.extract({
@@ -30,7 +30,7 @@ const extractStream = tt.extract({
 });
 
 const resp = await fetch(
-  "https://codeload.github.com/EqualMa/tar-transform/tar.gz/master",
+  "https://codeload.github.com/EqualMa/reproducible-tar/tar.gz/master",
 );
 resp.body.pipe(extractStream);
 
@@ -49,10 +49,10 @@ console.log(entries);
 
 ### :package: Pack a stream of entries into a (gzipped) tarball
 
-[![Try tar-transform pack in RunKit](https://img.shields.io/badge/%F0%9F%93%A6%20try%20in-RunKit-f55fa6.svg?labelColor=green&style=for-the-badge)](https://runkit.com/equalma/tar-transform-pack)
+[![Try reproducible-tar pack in RunKit](https://img.shields.io/badge/%F0%9F%93%A6%20try%20in-RunKit-f55fa6.svg?labelColor=green&style=for-the-badge)](https://runkit.com/equalma/reproducible-tar-pack)
 
 ```js
-const tt = require("tar-transform");
+const tt = require("reproducible-tar");
 const fetch = require("node-fetch");
 const { Readable } = require("stream");
 const fs = require("fs");
@@ -67,7 +67,7 @@ const imageResp = await fetch("https://github.com/EqualMa.png");
 const imageSize = parseInt(imageResp.headers.get("Content-Length"));
 
 Readable.from([
-  { headers: { name: "README.md" }, content: "# tar-transform" },
+  { headers: { name: "README.md" }, content: "# reproducible-tar" },
   { headers: { name: "hello/world.txt" }, content: "Hello World!" },
   { headers: { name: "emptyDir", type: "directory" } },
   {
@@ -76,21 +76,21 @@ Readable.from([
   },
 ])
   .pipe(packStream)
-  .pipe(fs.createWriteStream("tar-transform-pack-demo.tgz"));
+  .pipe(fs.createWriteStream("reproducible-tar-pack-demo.tgz"));
 ```
 
 ### :scissors: transform, remove entries from, or add entries into a (gzipped) tarball
 
-[![Try tar-transform transform in RunKit](https://img.shields.io/badge/%E2%9C%82%EF%B8%8Ftry%20in-RunKit-f55fa6.svg?labelColor=green&style=for-the-badge)](https://runkit.com/equalma/tar-transform)
+[![Try reproducible-tar transform in RunKit](https://img.shields.io/badge/%E2%9C%82%EF%B8%8Ftry%20in-RunKit-f55fa6.svg?labelColor=green&style=for-the-badge)](https://runkit.com/equalma/reproducible-tar)
 
 #### Transform as is ( no-op )
 
 ```js
-const tt = require("tar-transform");
+const tt = require("reproducible-tar");
 
 const tgzStream = (
   await fetch(
-    "https://runkit.io/equalma/tar-transform-pack/branches/master/tgz",
+    "https://runkit.io/equalma/reproducible-tar-pack/branches/master/tgz",
   )
 ).body;
 
@@ -111,7 +111,7 @@ tgzStream
   .pipe(extractStream)
   .pipe(transformStream)
   .pipe(packStream)
-  .pipe(require("fs").createWriteStream("tar-transform-demo.tgz"))
+  .pipe(require("fs").createWriteStream("reproducible-tar-demo.tgz"))
   .on("error", console.error);
 ```
 
@@ -134,14 +134,14 @@ const transformStream = tt.transform({
 
 #### edit file content
 
-The following example prefixes content of `*.txt` files with `HACKED BY tar-transform`
+The following example prefixes content of `*.txt` files with `HACKED BY reproducible-tar`
 
 ```js
 const transformStream = tt.transform({
   async onEntry(entry) {
     if (entry.headers.name.endsWith(".txt")) {
       const oldContent = await this.util.stringContentOfTarEntry(entry);
-      const newContent = "HACKED BY tar-transform\n" + oldContent;
+      const newContent = "HACKED BY reproducible-tar\n" + oldContent;
       this.push({
         headers: entry.headers,
         content: newContent,

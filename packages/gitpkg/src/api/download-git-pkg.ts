@@ -1,5 +1,5 @@
 import got from "got";
-import * as tt from "tar-transform";
+import * as tt from "reproducible-tar";
 import { codeloadUrl } from "./codeload-url";
 import { extractSubFolder } from "../tar/extract-sub-folder";
 import { customScripts } from "../tar/custom-scripts";

@@ -1,4 +1,4 @@
-import { transform } from "tar-transform";
+import { transform } from "reproducible-tar";
 
 /**
  *

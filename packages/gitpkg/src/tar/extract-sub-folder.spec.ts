@@ -1,5 +1,5 @@
 import { extractSubFolder } from "./extract-sub-folder";
-import { TarEntry } from "tar-transform";
+import { TarEntry } from "reproducible-tar";
 import { Readable, pipeline as _pipeline } from "stream";
 import { tarEntries, getEntries } from "../../test/util/tar-entry";
 
