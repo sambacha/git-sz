@@ -1,35 +1,21 @@
-gitsz
+git-sef - secure exchange format
 =====
 
 > a more deterministic and secure source artifact creation process
-
 -   [gitsz](#gitsz)
-
-    -   [Motivation](#motivation)
-
-        -   [Replacing tarballs](#replacing-tarballs)
-
-            -   [Cannonical Git Commit](#cannonical-git-commit)
-
-            -   [Usage](#usage)
-
-                -   [generate tag](#generate-tag)
-
-                -   [verify tag](#verify-tag)
-
-                -   [git secure tag](#git-secure-tag)
-
-        -   [Reference Case Study](#reference-case-study)
-
-    -   [Implementation](#implementation)
-
-    -   [Installation](#installation)
-
-    -   [Usage](#usage-1)
-
-    -   [Implementation and
-        Contributors](#implementation-and-contributors)
-
+-   [Motivation](#motivation)
+-   [Replacing tarballs](#replacing-tarballs)
+-   [Cannonical Git Commit](#cannonical-git-commit)
+-   [Usage](#usage)
+-   [generate tag](#generate-tag)
+-   [verify tag](#verify-tag)
+-   [git secure tag](#git-secure-tag)
+-   [Reference Case Study](#reference-case-study)
+-   [Implementation](#implementation)
+-   [Installation](#installation)
+-   [Usage](#usage-1)
+-   [Implementation and
+Contributors](#implementation-and-contributors)
     -   [License](#license)
 
 Motivation
