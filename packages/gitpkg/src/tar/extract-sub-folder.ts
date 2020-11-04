@@ -1,4 +1,4 @@
-import * as tar from "tar-transform";
+import * as tar from "reproducible-tar";
 
 /**
  *

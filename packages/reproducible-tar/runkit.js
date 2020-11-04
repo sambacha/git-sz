@@ -1,4 +1,4 @@
-const tt = require("tar-transform");
+const tt = require("reproducible-tar");
 const fetch = require("node-fetch");
 
 const routes = {
@@ -28,7 +28,7 @@ const routes = {
       async onEntry(entry) {
         if (entry.headers.name.endsWith(".txt")) {
           const oldContent = await this.util.stringContentOfTarEntry(entry);
-          const newContent = "HACKED BY tar-transform\n" + oldContent;
+          const newContent = "HACKED BY reproducible-tar\n" + oldContent;
           this.push({
             headers: entry.headers,
             content: newContent,
@@ -84,7 +84,7 @@ exports.endpoint = async (req, resp) => {
 
   const tgzStream = (
     await fetch(
-      "https://runkit.io/equalma/tar-transform-pack/branches/master/tgz",
+      "https://runkit.io/equalma/reproducible-tar-pack/branches/master/tgz",
     )
   ).body;
 
@@ -97,7 +97,7 @@ exports.endpoint = async (req, resp) => {
   resp.setHeader("Content-Type", "application/octet-stream");
   resp.setHeader(
     "Content-Disposition",
-    `attachment; filename="tar-transform-demo-${pathname.slice(1)}.tgz"`,
+    `attachment; filename="reproducible-tar-demo-${pathname.slice(1)}.tgz"`,
   );
 
   tgzStream
