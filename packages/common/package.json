@@ -1,13 +1,13 @@
 {
   "name": "gitsz-common",
-  "private": true,
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT",
+  "scripts": {
+    "lint:fix": "eslint --cache --max-warnings 0 --fix"
+  },
   "engines": {
     "node": ">= 6"
   },
-  "scripts": {
-    "lint:fix": "eslint --cache --max-warnings 0 --fix"
-  }
+  "license": "MIT",
+  "private": true
 }

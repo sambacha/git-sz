@@ -1,18 +1,7 @@
 {
   "name": "tar-transform",
+  "version": "1.0.0",
   "description": "extract, transform and re-pack tarball entries in form of stream",
-  "license": "MIT",
-  "main": "dist/index.js",
-  "module": "dist/es/index.js",
-  "types": "dist/index.d.ts",
-  "keywords": [
-    "tar",
-    "tarball",
-    "transform",
-    "tgz",
-    "duplex",
-    "gzip"
-  ],
   "author": {
     "name": "EqualMa",
     "email": "equalma@outlook.com",
@@ -22,17 +11,24 @@
     "type": "git",
     "url": "https://github.com/EqualMa/tar-transform.git"
   },
-  "runkitExampleFilename": "runkit.js",
+  "main": "dist/index.js",
+  "module": "dist/es/index.js",
   "scripts": {
-    "test": "jest",
-    "precommit": "lint-staged",
-    "lint:fix": "eslint --cache --max-warnings 0 --fix",
-    "ensure-linted": "eslint --max-warnings 0 . --ext=js,ts",
-    "semantic-release": "semantic-release",
     "build": "yarn run clean && yarn run build:lib && yarn run build:types",
     "build:lib": "rollup -c",
     "build:types": "tsc -p tsconfig.dts.json --outDir dist --declaration --emitDeclarationOnly",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "ensure-linted": "eslint --max-warnings 0 . --ext=js,ts",
+    "lint:fix": "eslint --cache --max-warnings 0 --fix",
+    "precommit": "lint-staged",
+    "semantic-release": "semantic-release",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@types/tar-stream": "^2.1.0",
+    "core-js": "^3.6.5",
+    "gunzip-maybe": "^1.4.1",
+    "tar-stream": "^2.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.7",
@@ -62,12 +58,6 @@
     "ts-jest": "^25.2.1",
     "typescript": "^3.7.5"
   },
-  "dependencies": {
-    "@types/tar-stream": "^2.1.0",
-    "core-js": "^3.6.5",
-    "gunzip-maybe": "^1.4.1",
-    "tar-stream": "^2.1.0"
-  },
   "files": [
     "dist"
   ],
@@ -76,5 +66,15 @@
       "pre-commit": "lint-staged"
     }
   },
-  "version": "1.0.0"
+  "keywords": [
+    "duplex",
+    "gzip",
+    "tar",
+    "tarball",
+    "tgz",
+    "transform"
+  ],
+  "license": "MIT",
+  "runkitExampleFilename": "runkit.js",
+  "types": "dist/index.d.ts"
 }

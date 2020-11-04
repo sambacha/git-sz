@@ -3,9 +3,17 @@
   "version": "0.0.0",
   "description": "> TODO: description",
   "author": "sam <sam@freighttrust.com>",
-  "homepage": "https://github.com/sambacha/gitszg/tree/master/packages/tar-sz#readme",
-  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sambacha/git-sz.git"
+  },
   "main": "lib/tar-sz.js",
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/sambacha/git-sz/issues"
+  },
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -13,14 +21,6 @@
   "files": [
     "lib"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sambacha/git-sz.git"
-  },
-  "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
-  },
-  "bugs": {
-    "url": "https://github.com/sambacha/git-sz/issues"
-  }
+  "homepage": "https://github.com/sambacha/gitszg/tree/master/packages/tar-sz#readme",
+  "license": "Apache-2.0"
 }
