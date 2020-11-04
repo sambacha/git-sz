@@ -43,6 +43,6 @@
       }
     ]
   ],
-  "name": "GitPkg",
-  "description": "Using sub folders of a repo as yarn/npm dependencies made easy"
+  "name": "GitSef",
+  "description": "Secure Exchange Format - Git Artifact Package Manager"
 }

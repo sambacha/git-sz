@@ -1,12 +1,12 @@
 ---
 home: true
 heroImage: /cover.svg
-footer: MIT Licensed | Copyright © 2020-present Equal Ma
+footer: MIT Licensed | Copyright © 2020 FreightTrust and Clearing
 ---
 
 <div style="text-align: center">
 
-# How to use
+# Quickstart
 
 </div>
 
