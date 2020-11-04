@@ -6,7 +6,7 @@
   "workspaces": ["docs/.vuepress", "tools/*", "packages/*"],
   "repository": {
     "type": "git",
-    "url": "https://github.com/EqualMa/gitpkg.git"
+    "url": "https://github.com/sambacha/git-sz.git"
   },
   "scripts": {
     "lint": "eslint --cache --ext .js,.ts",

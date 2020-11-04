@@ -43,11 +43,11 @@ Examples:
 ```shell
 yarn init -y
 
-# dep: repo=[EqualMa/gitpkg-hello] > sub folder=[packages/hello]
-yarn add https://gitpkg.now.sh/EqualMa/gitpkg-hello/packages/hello
+# dep: repo=[sambacha/git-sz-hello] > sub folder=[packages/hello]
+yarn add https://gitpkg.now.sh/sambacha/git-sz-hello/packages/hello
 
-# dep: [EqualMa/gitpkg-hello] > [packages/core] # branch=[feat/md]
-yarn add https://gitpkg.now.sh/EqualMa/gitpkg-hello/packages/core?feat/md
+# dep: [sambacha/git-sz-hello] > [packages/core] # branch=[feat/md]
+yarn add https://gitpkg.now.sh/sambacha/git-sz-hello/packages/core?feat/md
 ```
 
 ## More Formal API
@@ -190,7 +190,7 @@ This is how GitPkg works.
 
 ### Custom script example
 
-This example shows how to install [EqualMa/gitpkg-hello > packages/hello-ts](https://github.com/EqualMa/gitpkg-hello/tree/master/packages/hello-ts) as dependency.
+This example shows how to install [sambacha/git-sz-hello > packages/hello-ts](https://github.com/sambacha/git-sz-hello/tree/master/packages/hello-ts) as dependency.
 The sub folder of this repo only contains typescript source code so we need to use custom scripts:
 `scripts.postinstall=npm install --ignore-scripts && npm run build`
 
@@ -198,7 +198,7 @@ The sub folder of this repo only contains typescript source code so we need to u
 mkdir hello-gitpkg
 cd hello-gitpkg
 npm init -y
-npm install 'https://gitpkg.now.sh/EqualMa/gitpkg-hello/packages/hello-ts?master&scripts.postinstall=npm%20install%20--ignore-scripts%20%26%26%20npm%20run%20build'
+npm install 'https://gitpkg.now.sh/sambacha/git-sz-hello/packages/hello-ts?master&scripts.postinstall=npm%20install%20--ignore-scripts%20%26%26%20npm%20run%20build'
 ```
 
 Then make a new file `test.js`
