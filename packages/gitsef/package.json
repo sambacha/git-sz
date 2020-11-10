@@ -15,8 +15,6 @@
   "scripts": {
     "lint": "eslint --cache --ext .js,.ts",
     "lint:fix": "eslint --cache --max-warnings 0 --fix",
-    "test": "lerna run test",
-    "now-build": "yarn run build && yarn run test",
     "build": "lerna run build"
   },
   "devDependencies": {
