@@ -1,11 +1,11 @@
 {
-  "name": "gitsz",
+  "name": "@gitsz/package-manager",
   "version": "2.3.2",
   "description": "Git tags with higher level of security",
   "author": "SEE CONTRIBUTORS",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/sambacha/gitsz.git"
+    "url": "git+ssh://git@github.com/sambacha/git-sz.git"
   },
   "main": "index.js",
   "bin": {
@@ -18,7 +18,7 @@
     "test": "tape test/**/*.js | faucet"
   },
   "bugs": {
-    "url": "https://github.com/sambacha/gitsz/issues"
+    "url": "https://github.com/sambacha/git-sz/issues"
   },
   "dependencies": {
     "async": "^3.2.0",
@@ -37,7 +37,7 @@
     "rimraf": "^3.0.2",
     "tape": "^5.0.1"
   },
-  "homepage": "https://github.com/sambacha/gitszg#readme",
+  "homepage": "https://github.com/sambacha/git-sz",
   "keywords": [
     "git",
     "gpg",
