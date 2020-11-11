@@ -37,7 +37,7 @@
 =======
         It seems that no sub folder or custom scripts are specified so you don't
         need to use GitPkg.
->>>>>>>  
+ 
       </template>
       <button
         class="gitpkg-button"
@@ -51,7 +51,7 @@
             ? "See Git-Sef  API (experimental)"
 =======
             ? "See GitPkg API (not recommended)"
->>>>>>>  
+ 
             : "Show recommended commands"
         }}
       </button>

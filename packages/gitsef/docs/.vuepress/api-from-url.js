@@ -28,7 +28,7 @@ const getPrecedence = ({ commit }) => {
 const API_BASE = "https://gitpkg.now.sh/";
 =======
 const API_BASE = "https://gitsef.com/";
->>>>>>>  
+ 
 const REGEX_URL = /^https?:\/\/([^/?#]+)\/([^/?#]+)\/([^/?#]+)(?:(?:\/tree\/([^#?]+))|\/)?([#?].*)?$/;
 
 function customScriptToQueryParam(customScript) {
