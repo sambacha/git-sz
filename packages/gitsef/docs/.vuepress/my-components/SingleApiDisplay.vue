@@ -31,7 +31,7 @@
 
     <action-bar v-if="api.type === 'warn' && api.warnType === 'suggest-to-use'">
       <template #text>
-<<<<<<< HEAD
+ 
         It seems that no sub folder or custom scripts are utilized, only basic package features
         are supported.
 =======
@@ -47,7 +47,7 @@
       >
         {{
           showSuggested
-<<<<<<< HEAD
+ 
             ? "See Git-Sef  API (experimental)"
 =======
             ? "See GitPkg API (not recommended)"

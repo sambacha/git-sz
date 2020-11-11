@@ -24,7 +24,7 @@ const getPrecedence = ({ commit }) => {
   return i === -1 ? Infinity : i;
 };
 
-<<<<<<< HEAD
+ 
 const API_BASE = "https://gitpkg.now.sh/";
 =======
 const API_BASE = "https://gitsef.com/";
