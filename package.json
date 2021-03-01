@@ -27,16 +27,16 @@
     "yargs": "^16.1.0"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
-    "coveralls": "^3.1.0",
+    "chai": "4.2.0",
+    "coveralls": "3.1.0",
     "faucet": "0.0.1",
-    "istanbul": "^0.4.5",
-    "lerna": "^3.22.1",
-    "lerna-ci": "^0.0.6",
-    "mocha": "^8.2.0",
-    "release-it": "^14.2.1",
-    "rimraf": "^3.0.2",
-    "tape": "^5.0.1"
+    "istanbul": "0.4.5",
+    "lerna": "3.22.1",
+    "lerna-ci": "0.0.6",
+    "mocha": "8.2.1",
+    "release-it": "14.2.1",
+    "rimraf": "3.0.2",
+    "tape": "5.0.1"
   },
   "homepage": "https://github.com/sambacha/git-sz",
   "keywords": [

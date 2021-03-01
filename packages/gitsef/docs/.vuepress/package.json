@@ -7,16 +7,16 @@
     "node": ">=12"
   },
   "dependencies": {
-    "mdi-vue": "^1.4.3",
-    "normalize.css": "^8.0.1",
-    "vue-clipboard2": "^0.3.1",
-    "vue-select": "^3.9.5"
+    "mdi-vue": "1.8.1",
+    "normalize.css": "8.0.1",
+    "vue-clipboard2": "0.3.1",
+    "vue-select": "3.10.8"
   },
   "devDependencies": {
-    "@vuepress/plugin-pwa": "^1.4.0",
-    "parse5": "^5.1.1",
-    "pwa-asset-generator": "^2.2.1",
-    "vuepress": "^1.4.0"
+    "@vuepress/plugin-pwa": "1.7.1",
+    "parse5": "5.1.1",
+    "pwa-asset-generator": "2.3.0",
+    "vuepress": "1.7.1"
   },
   "scripts": {
     "precommit": "lint-staged",
