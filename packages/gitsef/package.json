@@ -34,7 +34,7 @@
     "imagemin-lint-staged": "0.4.0",
     "jest": "25.5.4",
     "lerna": "3.22.1",
-    "lint-staged": "10.5.1",
+    "lint-staged": "10.5.4",
     "now": "17.1.1",
     "prettier": "2.2.1",
     "react-scripts": "4.0.3",
