@@ -30,7 +30,7 @@
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-prettier": "3.1.4",
     "gitsz-common": "*",
-    "husky": "4.3.0",
+    "husky": "4.3.8",
     "imagemin-lint-staged": "0.4.0",
     "jest": "25.5.4",
     "lerna": "3.22.1",
