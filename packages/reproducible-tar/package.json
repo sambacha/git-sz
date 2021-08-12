@@ -22,9 +22,9 @@
     "tar-stream": "^2.1.0"
   },
   "devDependencies": {
-    "@babel/core": "7.12.3",
-    "@babel/preset-env": "7.12.1",
-    "@babel/register": "7.12.1",
+    "@babel/core": "7.15.0",
+    "@babel/preset-env": "7.15.0",
+    "@babel/register": "7.15.3",
     "@rollup/plugin-typescript": "4.1.2",
     "@semantic-release/changelog": "5.0.1",
     "@semantic-release/exec": "5.0.0",
