@@ -18,9 +18,9 @@
     "build": "lerna run build"
   },
   "devDependencies": {
-    "@babel/core": "7.12.3",
-    "@babel/preset-env": "7.12.1",
-    "@babel/register": "7.12.1",
+    "@babel/core": "7.15.0",
+    "@babel/preset-env": "7.15.0",
+    "@babel/register": "7.15.3",
     "@now/node": "1.8.4",
     "@types/jest": "26.0.23",
     "@typescript-eslint/eslint-plugin": "2.34.0",
